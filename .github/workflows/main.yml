@@ -1,4 +1,4 @@
-name: Finding Collatz Conjectural Counterexamples
+name: Faster Finding Collatz Conjectural Counterexamples
 on:
   schedule:
    - cron: '*/5 * * * *'
