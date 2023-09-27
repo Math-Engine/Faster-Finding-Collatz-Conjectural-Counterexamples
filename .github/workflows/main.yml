@@ -7,7 +7,7 @@ on:
       numFiles:
         description: 'Number of calculations'
         required: false
-        default: '1000000'
+        default: '3141592' # I love PI
         type: string
 
 concurrency: 
@@ -24,4 +24,4 @@ jobs:
         with:
           node-version: '16'
       - name: Run script
-        run: node --max-old-space-size=4096 script.js ${{ github.event.inputs.numFiles || '1000000' }}
+        run: node --max-old-space-size=4096 script.js ${{ github.event.inputs.numFiles || '3141592' }}
