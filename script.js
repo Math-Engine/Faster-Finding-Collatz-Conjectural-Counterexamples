@@ -1,3 +1,7 @@
+const fs = require('fs');
+const path = require('path');
+const execSync = require('child_process').execSync;
+
 // 덧셈
 function bigNumberAdd(a, b) {
     a = a.toString();
@@ -59,13 +63,9 @@ function bigNumberSubtract(a, b) {
     return result.replace(/^0+/, '');
 }
 
-const fs = require('fs');
-const path = require('path');
-const execSync = require('child_process').execSync;
-
 execSync(`git pull origin main`);
 
-let startNum = fs.readFileSync('max', 'utf8').trim();
+let startNum = fs.readFileSync('max', 'utf8');
 let endNum;
 if (process.argv[2]) {
     endNum = bigNumberAdd(startNum, process.argv[2]);
@@ -77,7 +77,7 @@ for (let i = startNum; bigNumberSubtract(endNum, i).includes("-") == false && bi
         console.log([i, bigNumberMultiply(i, "5").slice(0, -1), "...", "1"]);
         continue;
     }
-    n = i
+    n = i;
     let HailStoneNumber = [n];
     while (n != 1) {
         if (n.slice(-1) % 2 == 0) {
